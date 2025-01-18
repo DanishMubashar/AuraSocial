@@ -503,7 +503,7 @@ def main():
             .footer-icons-container {
                 display: flex;
                 justify-content: center;
-                gap: 20px;
+                gap: 10px;  /* Reduced gap between icons */
                 position: fixed;
                 bottom: 20px;
                 left: 50%;
@@ -562,7 +562,6 @@ def main():
             </div>
         </div>
     """, unsafe_allow_html=True)
-
 
 
     # Apply page styling
