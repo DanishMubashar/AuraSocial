@@ -319,12 +319,11 @@ def main():
 
     # Display title with dynamic color based on theme
     st.markdown("""
-    <h1 style='text-align: center; color:red;'>
+    <h1 style='text-align: center; color:red ;'>
     AuraSocial AI
     </h1>
+
     """, unsafe_allow_html=True)
-
-
 
 
 
@@ -499,6 +498,72 @@ def main():
         <p>Developed with ❤️ by AuraSocial AI</p>
     </footer>
 """, unsafe_allow_html=True)
+    st.markdown("""
+        <style>
+            .footer-icons-container {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 20px;
+            }
+
+            .footer-icon {
+                width: 40px;  /* Small circular icons */
+                height: 40px;
+                border-radius: 50%;
+                background-color: transparent;
+                transition: transform 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: sway 3s ease-in-out infinite;
+            }
+
+            .footer-icon img {
+                width: 60%;
+                height: auto;
+            }
+
+            @keyframes sway {
+                0%, 100% { transform: translateX(0); }
+                50% { transform: translateX(-10px); } /* Slight sway to the left */
+            }
+
+            .footer-icon:hover {
+                transform: scale(1.1) translateY(-5px);
+            }
+        </style>
+
+        <div class="footer-icons-container">
+            <div class="footer-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube">
+            </div>
+            <div class="footer-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/225px-Instagram_logo_2022.svg.png" alt="Instagram">
+            </div>
+            <div class="footer-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+            </div>
+            <div class="footer-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn">
+            </div>
+            <div class="footer-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/330px-TikTok_logo.svg.png" alt="TikTok">
+            </div>
+            <div class="footer-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+            </div>
+            <div class="footer-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/Snapchat_logo.svg/150px-Snapchat_logo.svg.png" alt="Snapchat">
+            </div>
+        </div>
+    """, unsafe_allow_html=True)
+
+
 
     # Apply page styling
     set_page_style()
