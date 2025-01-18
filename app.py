@@ -120,7 +120,16 @@ def set_page_style():
         </style>
     """
 # Light theme styles with realistic, organic clouds
-    # Light theme styles with more dynamic, organic cloud effects
+
+
+
+
+
+
+
+
+
+    # Light theme styles with smaller, cotton-like clouds
     light_theme_styles = """
         <style>
             .stApp {
@@ -131,68 +140,55 @@ def set_page_style():
                 position: fixed;
                 top: 50px;
                 right: 100px;
-                width: 80px;
-                height: 80px;
+                width: 60px;
+                height: 60px;
                 border-radius: 50%;
                 background: radial-gradient(circle, #FFE87C, #FFA500);
                 box-shadow: 0 0 60px 30px rgba(255, 165, 0, 0.4);
-                animation: sun-pulse 4s infinite alternate;
+                animation: sun-pulse 3s infinite alternate;
             }
 
+            /* Smaller soft cotton-like clouds with gentle opacity */
             .cloud {
                 position: fixed;
                 background: #ffffff;
-                opacity: 0.85;
-                box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
-                animation: float linear infinite;
-                z-index: 2;
-                border-radius: 60% 80% 90% 60% / 50% 80% 40% 70%;
-                filter: blur(0.8px);
+                opacity: 0.5;
+                box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+                animation: float 15s ease-in-out infinite;
             }
 
+            /* Smaller cloud designs */
             .cloud.one {
-                width: 120px;
-                height: 60px;
-                background: radial-gradient(circle at 25% 30%, #ffffff, rgba(240, 248, 255, 0.9));
-                box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.7);
+                width: 70px;
+                height: 40px;
+                background: #fff;
+                border-radius: 60% 60% 40% 40%;
+                opacity: 0.5; /* Soft opacity */
             }
 
             .cloud.two {
-                width: 150px;
-                height: 80px;
-                background: radial-gradient(circle at 30% 40%, #ffffff, rgba(240, 248, 255, 0.85));
-                box-shadow: 0 0 40px 15px rgba(255, 255, 255, 0.8);
+                width: 85px;
+                height: 45px;
+                background: #fff;
+                border-radius: 65% 60% 45% 45%;
+                opacity: 0.55;
             }
 
             .cloud.three {
-                width: 180px;
-                height: 90px;
-                background: radial-gradient(circle at 20% 50%, #ffffff, rgba(240, 248, 255, 0.8));
-                box-shadow: 0 0 50px 20px rgba(255, 255, 255, 0.8);
+                width: 100px;
+                height: 50px;
+                background: #fff;
+                border-radius: 70% 70% 50% 45%;
+                opacity: 0.6;
             }
 
-            /* More floating and speed dynamics */
+            /* Float animation for smooth cloud motion */
             @keyframes float {
-                0% {
-                    transform: translateX(-150px) translateY(0) rotate(0deg);
-                    opacity: 0.85;
-                }
-                25% {
-                    transform: translateX(25vw) translateY(10vh) rotate(5deg);
-                    opacity: 0.9;
-                }
-                50% {
-                    transform: translateX(50vw) translateY(-5vh) rotate(-5deg);
-                    opacity: 0.85;
-                }
-                75% {
-                    transform: translateX(75vw) translateY(20vh) rotate(3deg);
-                    opacity: 0.8;
-                }
-                100% {
-                    transform: translateX(100vw) translateY(0) rotate(0deg);
-                    opacity: 0.85;
-                }
+                0% { transform: translateY(0) translateX(0); opacity: 0.6; }
+                25% { transform: translateY(-5vh) translateX(5vw); opacity: 0.65; }
+                50% { transform: translateY(0) translateX(8vw); opacity: 0.6; }
+                75% { transform: translateY(5vh) translateX(-5vw); opacity: 0.55; }
+                100% { transform: translateY(0) translateX(0); opacity: 0.6; }
             }
 
             @keyframes sun-pulse {
@@ -200,21 +196,24 @@ def set_page_style():
                 100% { transform: scale(1.1); }
             }
         </style>
-        <!-- Sun and Dynamic Clouds -->
-        <div class="sun"></div>
         
-        <!-- Clouds with more dynamic speed, placement, and opacity -->
-        <div class="cloud one" style="top: 20%; left: 10%; animation-duration: 40s; animation-delay: 0s;"></div>
-        <div class="cloud two" style="top: 35%; left: 30%; animation-duration: 50s; animation-delay: -5s;"></div>
-        <div class="cloud three" style="top: 50%; left: 45%; animation-duration: 60s; animation-delay: -10s;"></div>
-        <div class="cloud one" style="top: 65%; left: 60%; animation-duration: 70s; animation-delay: -15s;"></div>
-        <div class="cloud two" style="top: 75%; left: 80%; animation-duration: 80s; animation-delay: -20s;"></div>
+        <!-- Sun and Natural Soft Clouds -->
+        <div class="sun"></div>
+
+        <!-- Smaller clouds in different places -->
+        <div class="cloud one" style="top: 20%; left: 15%; animation-duration: 20s;"></div>
+        <div class="cloud two" style="top: 25%; left: 40%; animation-duration: 25s;"></div>
+        <div class="cloud three" style="top: 35%; left: 30%; animation-duration: 30s;"></div>
+        <div class="cloud one" style="top: 45%; left: 50%; animation-duration: 25s;"></div>
+        <div class="cloud two" style="top: 55%; left: 60%; animation-duration: 30s;"></div>
     """
 
 
 
 
-    # Dark theme styles
+
+
+    # Dark theme styles with static, small, twinkling stars, and a randomly falling star
     dark_theme_styles = """
         <style>
             .stApp {
@@ -234,34 +233,78 @@ def set_page_style():
                 animation: moon-glow 6s infinite alternate;
             }
 
+            /* Static stars with twinkle effect */
             .star {
                 position: fixed;
-                background: white;
                 border-radius: 50%;
-                animation: twinkle 3s infinite alternate;
+                animation: twinkle 1.5s infinite alternate; /* Slow twinkle effect */
+            }
+
+            /* Star size */
+            .star.small {
+                width: 3px;
+                height: 3px;
+            }
+
+            /* Twinkling effect */
+            @keyframes twinkle {
+                0% { opacity: 0.4; }
+                100% { opacity: 1; }
+            }
+
+            /* Falling star with random path and exit points */
+            .falling-star {
+                position: fixed;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background: #ffd700; /* Golden color for falling star */
+                animation: fall 6s infinite linear, twinkle 1.5s infinite alternate;
+                animation-delay: 0s;
+            }
+
+            /* Random fall path */
+            @keyframes fall {
+                0% {
+                    top: -10%; 
+                    left: calc(50% - 2.5px); /* Start position */
+                    transform: translateX(0);
+                }
+                100% {
+                    top: 100%;
+                    left: calc(50% + random(-150,150)px); /* Random horizontal end point */
+                    transform: translateX(calc(random(-50,50)%)); /* random movement along path */
+                }
             }
 
             @keyframes moon-glow {
                 0% { box-shadow: 0 0 20px 8px rgba(255, 211, 3, 0.3); }
                 100% { box-shadow: 0 0 30px 12px rgba(255, 211, 3, 0.6); }
             }
-
-            @keyframes twinkle {
-                0% { opacity: 0.3; }
-                100% { opacity: 1; }
-            }
         </style>
+        
         <div class="moon"></div>
+        
+        <!-- Randomly falling star -->
+        <div class="falling-star" style="animation-delay: {random.randint(0,5)}s;"></div>
+
+        <!-- Random static stars -->
         """ + "".join([
-            f'<div class="star" style="width: {random.randint(2,4)}px; height: {random.randint(2,4)}px; '
-            f'top: {random.randint(5,95)}%; left: {random.randint(5,95)}%;"></div>'
+                f'<div class="star small" style="top: {random.randint(5,95)}%; left: {random.randint(5,95)}%; '
+                f'background: {"#ffd700" if random.random() > 0.5 else "#ffffff"};"></div>'
             for _ in range(50)
         ])
 
-    # Apply styles
+
+
+
+ 
+
+
     st.markdown(base_styles, unsafe_allow_html=True)
     if st.session_state.get('theme') == 'dark-mode':
         st.markdown(dark_theme_styles, unsafe_allow_html=True)
+
     else:
         st.markdown(light_theme_styles, unsafe_allow_html=True)
 
@@ -274,12 +317,16 @@ def main():
     )
 
 
-
+    # Display title with dynamic color based on theme
     st.markdown("""
-    <h1 style='text-align: center; color: #333;'>
+    <h1 style='text-align: center; color:red ;'>
     AuraSocial AI
     </h1>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
+
+
+
+
 
  
 # Adding space
@@ -444,16 +491,6 @@ def main():
                 </div>
             </div>
         """, unsafe_allow_html=True)
-
-
-
-
-
-
-
-
-
-
 
 
 # Footer
