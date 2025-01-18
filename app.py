@@ -8,13 +8,14 @@ client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 # Platform Features and Logos
 platform_features = {
+        "Instagram": [
+        "Username Generator", "Hashtag Generator", "Caption Generator"
+    ],
     "YouTube": [
         "Channel Name Generator", "Video Title Generator", "Channel Tagline Generator",
         "Video Description Generator", "Username Generator", "Hashtag Generator"
     ],
-    "Instagram": [
-        "Username Generator", "Hashtag Generator", "Caption Generator"
-    ],
+
     "Facebook": [
         "Post Caption Generator", "Event Tagline Generator", "Hashtag Generator",
         "Username Generator"
@@ -122,96 +123,126 @@ def set_page_style():
 # Light theme styles with realistic, organic clouds
 
 
-
-
-
-
-
-
-
-    # Light theme styles with smaller, cotton-like clouds
+# Enhanced sky simulation with realistic clouds
     light_theme_styles = """
-        <style>
-            .stApp {
-                background: linear-gradient(180deg, #62B8FF 0%, #87CEEB 50%, #B0E2FF 100%);
-            }
+    <style>
+        .stApp {
+            background: linear-gradient(180deg, #62B8FF 0%, #87CEEB 50%, #B0E2FF 100%);
+            overflow: hidden;
+        }
 
-            .sun {
-                position: fixed;
-                top: 50px;
-                right: 100px;
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-                background: radial-gradient(circle, #FFE87C, #FFA500);
-                box-shadow: 0 0 60px 30px rgba(255, 165, 0, 0.4);
-                animation: sun-pulse 3s infinite alternate;
-            }
+        .sun {
+            position: fixed;
+            top: 50px;
+            right: 100px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #FFE87C 60%, #FFA500);
+            box-shadow: 0 0 60px 30px rgba(255, 165, 0, 0.4);
+            animation: sun-pulse 3s infinite alternate;
+        }
 
-            /* Smaller soft cotton-like clouds with gentle opacity */
-            .cloud {
-                position: fixed;
-                background: #ffffff;
-                opacity: 0.5;
-                box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-                animation: float 15s ease-in-out infinite;
-            }
+        .cloud {
+            position: fixed;
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            opacity: 0.3; /* Further reduced opacity */
+            filter: blur(0.8px);
+        }
 
-            /* Smaller cloud designs */
-            .cloud.one {
-                width: 70px;
-                height: 40px;
-                background: #fff;
-                border-radius: 60% 60% 40% 40%;
-                opacity: 0.5; /* Soft opacity */
-            }
+        .cloud:before,
+        .cloud:after {
+            content: '';
+            position: absolute;
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border-radius: 50%;
+        }
 
-            .cloud.two {
-                width: 85px;
-                height: 45px;
-                background: #fff;
-                border-radius: 65% 60% 45% 45%;
-                opacity: 0.55;
-            }
+        .cloud.one {
+            width: 120px;
+            height: 50px;
+        }
 
-            .cloud.three {
-                width: 100px;
-                height: 50px;
-                background: #fff;
-                border-radius: 70% 70% 50% 45%;
-                opacity: 0.6;
-            }
+        .cloud.one:before {
+            width: 70px;
+            height: 70px;
+            top: -30px;
+            left: 15px;
+        }
 
-            /* Float animation for smooth cloud motion */
-            @keyframes float {
-                0% { transform: translateY(0) translateX(0); opacity: 0.6; }
-                25% { transform: translateY(-5vh) translateX(5vw); opacity: 0.65; }
-                50% { transform: translateY(0) translateX(8vw); opacity: 0.6; }
-                75% { transform: translateY(5vh) translateX(-5vw); opacity: 0.55; }
-                100% { transform: translateY(0) translateX(0); opacity: 0.6; }
-            }
+        .cloud.one:after {
+            width: 90px;
+            height: 90px;
+            top: -40px;
+            right: 15px;
+        }
 
-            @keyframes sun-pulse {
-                0% { transform: scale(1); }
-                100% { transform: scale(1.1); }
-            }
-        </style>
-        
-        <!-- Sun and Natural Soft Clouds -->
-        <div class="sun"></div>
+        .cloud.two {
+            width: 100px;
+            height: 45px;
+        }
 
-        <!-- Smaller clouds in different places -->
-        <div class="cloud one" style="top: 20%; left: 15%; animation-duration: 20s;"></div>
-        <div class="cloud two" style="top: 25%; left: 40%; animation-duration: 25s;"></div>
-        <div class="cloud three" style="top: 35%; left: 30%; animation-duration: 30s;"></div>
-        <div class="cloud one" style="top: 45%; left: 50%; animation-duration: 25s;"></div>
-        <div class="cloud two" style="top: 55%; left: 60%; animation-duration: 30s;"></div>
+        .cloud.two:before {
+            width: 60px;
+            height: 60px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud.two:after {
+            width: 80px;
+            height: 80px;
+            top: -35px;
+            right: 10px;
+        }
+
+        .cloud.three {
+            width: 90px;
+            height: 40px;
+        }
+
+        .cloud.three:before {
+            width: 50px;
+            height: 50px;
+            top: -20px;
+            left: 8px;
+        }
+
+        .cloud.three:after {
+            width: 70px;
+            height: 70px;
+            top: -30px;
+            right: 8px;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); opacity: 0.4; }
+            25% { transform: translate(-10px, 15px); opacity: 0.45; }
+            50% { transform: translate(-15px, -10px); opacity: 0.4; }
+            75% { transform: translate(5px, 10px); opacity: 0.35; }
+            100% { transform: translate(0, 0); opacity: 0.4; }
+        }
+
+        @keyframes sun-pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .cloud {
+            animation: float 18s ease-in-out infinite;
+        }
+    </style>
+
+    <div class="sun"></div>
+    <div class="cloud one" style="top: 15%; left: 10%; animation-duration: 22s;"></div>
+    <div class="cloud two" style="top: 25%; left: 35%; animation-duration: 28s;"></div>
+    <div class="cloud three" style="top: 20%; left: 60%; animation-duration: 25s;"></div>
+    <div class="cloud one" style="top: 40%; left: 20%; animation-duration: 30s;"></div>
+    <div class="cloud two" style="top: 50%; left: 75%; animation-duration: 27s;"></div>
+    <div class="cloud three" style="top: 35%; left: 80%; animation-duration: 32s;"></div>
     """
-
-
-
-
-
 
     # Dark theme styles with static, small, twinkling stars, and a randomly falling star
     dark_theme_styles = """
@@ -307,7 +338,6 @@ def set_page_style():
 
     else:
         st.markdown(light_theme_styles, unsafe_allow_html=True)
-
 def main():
     # Page config
     st.set_page_config(
@@ -316,21 +346,23 @@ def main():
         layout="wide",
     )
 
+    # Theme Selection moved to top right
+    col_title, col_theme = st.columns([4, 1])
+    
+    with col_title:
+        # Display title with dynamic color based on theme
+        st.markdown("""
+        <h1 style='text-align: center; color:red ;'>
+        AuraSocial AI
+        </h1>
+        """, unsafe_allow_html=True)
+    
+    with col_theme:
+        theme = st.radio("Select Theme", ["Dark", "Light"], key="theme_selector")
+        st.session_state.theme = 'dark-mode' if theme == "Dark" else 'light-mode'
 
-    # Display title with dynamic color based on theme
-    st.markdown("""
-    <h1 style='text-align: center; color:red ;'>
-    AuraSocial AI
-    </h1>
-
-    """, unsafe_allow_html=True)
-
-
-
- 
-# Adding space
+    # Adding space
     st.markdown("<br><br>", unsafe_allow_html=True)
-    # st.markdown("<br><br>", unsafe_allow_html=True)
 
     # Platform and Feature Selection in main area
     col1, col2 = st.columns(2)
@@ -338,18 +370,6 @@ def main():
         selected_platform = st.selectbox("Select a Social Media Platform", list(platform_features.keys()))
     with col2:
         selected_feature = st.selectbox("Select a Feature", platform_features[selected_platform])
-
-
-
-
-
-
-
-
-
-
-
-
 
     # Display Logo
     st.markdown(f"""
@@ -373,19 +393,9 @@ def main():
 
     st.markdown('</div>', unsafe_allow_html=True)
 
-    # Theme Selection (in sidebar)
+    # Keep the sidebar content
     with st.sidebar:
-        theme = st.radio("Select Theme", ["Light", "Dark"])
-        st.session_state.theme = 'dark-mode' if theme == "Dark" else 'light-mode'
-
-
-
-
-# description
-
-
-
-
+        # Description
         st.markdown("""
             <style>
                 .cyber-container {
@@ -419,11 +429,7 @@ def main():
             </div>
         """, unsafe_allow_html=True)
 
-
-# me
-
-
-
+        # Personal info section
         st.markdown("""
             <style>
                 .cyber-container {
@@ -491,13 +497,15 @@ def main():
             </div>
         """, unsafe_allow_html=True)
 
-
-# Footer
+    # Footer
     st.markdown("""
-    <footer style="text-align: center; padding: 20px; color: #333;">
+    <footer style="text-align: center; padding: 20px; color: red;">
         <p>Developed with ❤️ by AuraSocial AI</p>
     </footer>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
+
+    # Apply page styling
+    # set_page_style()
     st.markdown("""
         <style>
             .footer-icons-container {
