@@ -319,7 +319,7 @@ def main():
 
     # Display title with dynamic color based on theme
     st.markdown("""
-    <h1 style='text-align: center; color:red ;'>
+    <h1 style='text-align: center; color:red;'>
     AuraSocial AI
     </h1>
     """, unsafe_allow_html=True)
