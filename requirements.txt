@@ -1,2 +1,2 @@
-streamlit==1.43.2
-google-genai==1.7.0
+groq==0.15.0
+streamlit==1.40.2
