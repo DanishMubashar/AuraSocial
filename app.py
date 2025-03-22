@@ -54,7 +54,7 @@ def generate_content(client, topic, platform, feature):
     
     try:
         completion = client.chat.completions.create(
-            model="mixtral-8x7b-32768",
+            model="gemma2-9b-it",
             messages=[
                 {"role": "system", "content": "You are a social media content expert."},
                 {"role": "user", "content": prompt}
