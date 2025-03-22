@@ -576,5 +576,6 @@ def main():
     # Apply page styling
     set_page_style()
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
+
