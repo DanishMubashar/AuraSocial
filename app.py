@@ -1,10 +1,12 @@
 import streamlit as st
-from groq import Groq
+import google.generativeai as genai
 import os
 import random
 
 # Initialize Groq client
-client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+
+client = genai.GenerativeModel(api_key=os.environ.get("GOOGLE_GEMINI_API_KEY"))
+
 
 # Platform Features and Logos
 platform_features = {
